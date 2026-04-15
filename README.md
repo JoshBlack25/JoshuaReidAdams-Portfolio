@@ -1,4 +1,9 @@
-# 💻 Joshua Reid Adams - GitHub Portfolio
+---
+layout: home
+title: Joshua Reid Adams Portfolio
+---
+
+# 💻 Joshua Reid Adams
 
 📍 Cape Town, South Africa  
 📧 230317693@mycput.ac.za  
@@ -9,98 +14,103 @@
 
 ## 👨‍💻 About Me
 
-I am a Diploma in Application Development student at the Cape Peninsula University of Technology (CPUT), passionate about building practical software solutions.
+I am a Diploma in Application Development student at the Cape Peninsula University of Technology (CPUT). I focus on building practical, structured software solutions that solve real problems.
 
-With a background in customer service and sales, I bring strong communication, teamwork, and problem-solving skills into my development work. I am focused on growing as a software developer and contributing to real-world projects.
+With experience in customer service and teamwork-driven environments, I bring communication skills, discipline, and problem-solving ability into my development work. I am working toward becoming a capable and industry-ready software developer.
 
 ---
 
 ## 🛠️ Technical Skills
 
-- Java  
-- JavaScript  
-- HTML5 & CSS3  
-- Python  
-- React  
-- MySQL  
-- Linux  
+- Java (JDBC, desktop applications)
+- JavaScript
+- HTML5 & CSS3
+- Python
+- React (basic)
+- MySQL
+- Linux
 
 ---
 
-## 🚀 Projects
+## 🚀 Featured Projects
 
 ### 📌 Student Enrollment System
-A Java desktop application designed to manage student registrations and course enrollments.
+Java desktop application for managing student registrations and course data.
 
-**Technologies Used:** Java, JDBC, MySQL  
-**Role:** Developed core functionality and database integration  
+**Tech:** Java, JDBC, MySQL  
 
 ---
 
 ### 📌 Campus Companion
-A timetable management system to help students organize their schedules efficiently.
+A timetable management system designed to help students organise their schedules.
 
-**Technologies Used:** Java, JDBC, MySQL  
-**Role:** Designed and implemented scheduling features  
+**Tech:** Java, JDBC, MySQL  
 
 ---
 
 ### 📌 Personal Portfolio Website
-A responsive web application showcasing my skills and projects.
+A responsive website showcasing my skills and projects.
 
-**Technologies Used:** HTML5, CSS3, JavaScript  
-**Role:** Designed and developed frontend layout  
+**Tech:** HTML5, CSS3, JavaScript  
 
 ---
 
-### 📌 Future Foundations Website
-A website developed for a charity organization.
+### 📌 Future Foundations
+A charity organisation website developed as part of my learning journey.
 
-**Technologies Used:** HTML5, CSS3, JavaScript  
-**Role:** Built and structured website content  
+**Tech:** HTML5, CSS3, JavaScript  
 
 ---
 
 ## 🎥 Mock Interview Video
 
-[![Watch My Mock Interview](./thumbnail.png)](./PRP_Mock_Interview_230317693.mp4)
+### Watch my presentation below:
+
+[![Click to Watch Mock Interview](./assets/thumbnail.png)](./assets/PRP_Mock_Interview_230317693.mp4)
+
+---
+
+### 📌 Video Notes
+- If the video does not play in the browser, it can be accessed directly from the repository `/assets` folder.
+- Ensure the file is uploaded correctly to GitHub under the `assets` directory.
 
 ---
 
 ## 📄 Curriculum Vitae (CV)
 
-👉 [View My CV](./cv.md)
+👉 [View My CV](cv.md)
 
 ---
 
-## 🧠 Reflections (STAR Method)
+## 🧠 Reflective Practice
 
-This portfolio includes structured reflections based on the STAR method:
+This portfolio includes structured reflections using the STAR method:
 
-- Reflection on coding in Markdown  
-- Reflection on mock interview experience  
-- Reflection on using GitHub Pages  
+- Mock Interview Reflection  
+- Markdown & GitHub Pages Learning Reflection  
+- General Development Reflection  
 
-👉 [View Reflections](./interview.md)
+👉 [Read Reflections](interview.md)
 
 ---
 
 ## 🌐 GitHub Pages Deployment
 
-This portfolio is deployed using GitHub Pages to showcase my work professionally online.
+This portfolio is deployed using GitHub Pages.
 
-🔗 *[Insert your GitHub Pages link here]*
+🔗 Live Site:  
+https://joshblack25.github.io/JoshuaReidAdams-Portfolio/
 
 ---
 
 ## 📌 Portfolio Purpose
 
-This portfolio was created as part of the PRP370 Project Presentation assignment to demonstrate:
+This portfolio demonstrates:
 
-- Technical skills in software development  
-- Ability to use GitHub and Markdown  
-- Professional readiness for the ICT industry  
-- Reflection on learning experiences  
+- Technical software development skills  
+- Ability to use GitHub and Markdown effectively  
+- Reflection on learning and professional growth  
+- Readiness for the ICT workplace  
 
 ---
 

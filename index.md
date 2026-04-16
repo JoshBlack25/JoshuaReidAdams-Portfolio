@@ -66,9 +66,7 @@ A charity organisation website developed as part of my learning journey.
 
 ### Watch my presentation below:
 
-<video width="640" height="360" controls>
-  <source src="assests/PRP_Mock_Interview_230317693.mp4" type="video/mp4">
-</video>
+[![Mock Interview](./assests/thumbnail.png)](./assests/PRP_Mock_Interview_230317693.mp4)
 
 ---
 

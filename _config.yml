@@ -1,19 +1,14 @@
 # Site settings
 title: Joshua Reid Adams Portfolio
-description: Digital Portfolio – Application Development Student (CPUT)
-author: Joshua Reid Adams
+description: Application Development Student | Software Developer in Training
 
-# GitHub Pages theme (safe default)
-theme: minima
+# Use Hacker theme
+remote_theme: pages-themes/hacker@v0.2.0
 
-# Navigation style (optional but useful for structure)
-show_excerpts: true
+# Required plugin
+plugins:
+  - jekyll-remote-theme
 
-# Build settings
-markdown: kramdown
-
-# Optional social links (helps professionalism)
-github_username: JoshBlack25
-
-# Optional: improves formatting consistency
+# Optional settings
+show_downloads: false
 timezone: Africa/Johannesburg

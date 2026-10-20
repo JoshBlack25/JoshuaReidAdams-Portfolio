@@ -1,0 +1,72 @@
+---
+layout: default
+title: Home
+nav: home
+description: Digital portfolio of Joshua Reid Adams, Application Development student at CPUT.
+---
+<section class="hero reveal">
+  <div>
+    <span class="eyebrow">Digital portfolio · PRP3 · 2026</span>
+    <h1>I build software that people <span>actually use</span>.</h1>
+    <p class="lead">I'm Joshua Reid Adams, a Diploma in Application Development student at the Cape Peninsula University of Technology. Before I wrote code I spent years in customer service, and that taught me to start from what the user needs. This year I led a five-person team to deploy GoldenWay, a multirole transit app for Golden Arrow commuters.</p>
+    <div class="actions">
+      <a class="btn" href="{{ '/agile.html' | relative_url }}">See my Agile eWIL work</a>
+      <a class="btn btn--ghost" href="{{ '/assests/Joshua_Adams_CV.pdf' | relative_url }}">Download CV (PDF)</a>
+    </div>
+  </div>
+  <aside class="card hero__card" aria-label="At a glance">
+    <span class="eyebrow">At a glance</span>
+    <ul class="ticker" style="list-style:none;margin:0;padding:0">
+      <li><span>Studying</span><strong>Dip. Application Development</strong></li>
+      <li><span>Current role</span><strong>Team Lead, GoldenWay</strong></li>
+      <li><span>Stack I use most</span><strong>React · Supabase · Java</strong></li>
+      <li><span>Based in</span><strong>Cape Town</strong></li>
+    </ul>
+  </aside>
+</section>
+
+<section class="section reveal" aria-labelledby="skills-h">
+  <h2 class="bar" id="skills-h"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6 2 12l6 6 1.4-1.4L4.8 12l4.6-4.6zm8 0-1.4 1.4 4.6 4.6-4.6 4.6L16 18l6-6z"/></svg>Technical skills</h2>
+  <ul class="pills">
+    <li class="pill">Java</li><li class="pill">JavaScript</li><li class="pill">HTML5</li><li class="pill">CSS3</li><li class="pill">Python</li><li class="pill">Spring Boot</li><li class="pill">React</li><li class="pill">Next.js</li><li class="pill">MySQL</li><li class="pill">Supabase</li><li class="pill">Git</li><li class="pill">GitHub</li><li class="pill">npm</li><li class="pill">JDBC</li><li class="pill">REST APIs</li><li class="pill">Linux</li>
+  </ul>
+</section>
+
+<section class="section reveal" aria-labelledby="projects-h">
+  <h2 class="bar" id="projects-h"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg>Projects</h2>
+  <div class="grid grid--2">
+    <a class="card project project--feature" href="{{ '/agile.html' | relative_url }}">
+      <h3>Golden Way App</h3>
+      <span class="mono">05/2026 – Present · Team Lead</span>
+      <p style="margin-top:10px">Mobile-first transit management system with six roles: commuter, clerk, driver, inspector, agent and admin. Deployed on Vercel with a Supabase backend.</p>
+      <p class="project__stack">React · JavaScript · Supabase · SQL</p>
+    </a>
+    <div class="card project card--hover">
+      <h3>Mlangeni Grand Hospitality</h3>
+      <span class="mono">02/2026 – Present</span>
+      <p style="margin-top:10px">Catering management web application.</p>
+      <p class="project__stack">Next.js · React · JavaScript · Supabase · Tailwind CSS</p>
+    </div>
+    <div class="card project card--hover">
+      <h3>MediTicket</h3>
+      <span class="mono">03/2026 – Present</span>
+      <p style="margin-top:10px">Full-stack medical appointment management application.</p>
+      <p class="project__stack">Java · Spring Boot · Java Swing · MySQL · JPA</p>
+    </div>
+    <div class="card project card--hover">
+      <h3>Campus Companion</h3>
+      <span class="mono">02/2025 – 11/2025</span>
+      <p style="margin-top:10px">Java-based timetable management system for students.</p>
+      <p class="project__stack">Java · JDBC · MySQL</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" aria-labelledby="explore-h">
+  <h2 class="bar" id="explore-h"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3.5 6.5-2 5-5 2 2-5z"/></svg>Explore the portfolio</h2>
+  <div class="grid grid--3">
+    <a class="card portal" href="{{ '/agile.html' | relative_url }}"><span class="eyebrow">Assessment 2</span><h3>Agile eWIL</h3><p class="muted">Team charter, user stories, backlogs and logbook from GoldenWay, each with my reflection.</p></a>
+    <a class="card portal" href="{{ '/cv.html' | relative_url }}"><span class="eyebrow">Profile</span><h3>Curriculum Vitae</h3><p class="muted">Experience, education, projects, skills and certificates.</p></a>
+    <a class="card portal" href="{{ '/interview.html' | relative_url }}"><span class="eyebrow">Assessment 1</span><h3>Mock Interview</h3><p class="muted">My recorded mock interview and STAR reflections.</p></a>
+  </div>
+</section>

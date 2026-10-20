@@ -1,0 +1,355 @@
+---
+layout: default
+title: Agile eWIL
+nav: agile
+description: Agile eWIL evidence and reflections for the GoldenWay project, PRP3 Assessment 2.
+---
+<header class="reveal">
+  <span class="eyebrow">PRP370S · Project Presentation 3 · Assessment 2</span>
+  <h1>Agile eWIL: building GoldenWay</h1>
+  <p class="lead">GoldenWay is a mobile-first digital ticketing and transit app for Golden Arrow commuters, built by Group 26 with React, Supabase and Vercel. I led the team from July 2026. This page follows the route I took through five Agile artefacts. Each stop shows the evidence first and then my reflection on it.</p>
+  <div class="facts">
+    <div class="fact"><strong>6</strong><span>user roles in the deployed app</span></div>
+    <div class="fact"><strong data-count="stories">49</strong><span>user stories on the backlog</span></div>
+    <div class="fact"><strong data-count="done">48</strong><span>stories delivered</span></div>
+    <div class="fact"><strong>19</strong><span>sprint cards completed on Trello</span></div>
+    <div class="fact"><strong>21</strong><span>database migrations in Supabase</span></div>
+  </div>
+</header>
+
+<nav class="route" aria-label="Artefact route">
+  <div class="route__label"><span>Route: Charter to Logbook</span><span>5 stops</span></div>
+  <ol class="route__line">
+    <span class="route__fill" aria-hidden="true"></span>
+    <li><a href="#charter"><span class="route__dot" aria-hidden="true"></span><span>Team Charter</span></a></li>
+    <li><a href="#stories"><span class="route__dot" aria-hidden="true"></span><span>User Stories</span></a></li>
+    <li><a href="#product"><span class="route__dot" aria-hidden="true"></span><span>Product Backlog</span></a></li>
+    <li><a href="#sprint"><span class="route__dot" aria-hidden="true"></span><span>Sprint Backlog</span></a></li>
+    <li><a href="#logbook"><span class="route__dot" aria-hidden="true"></span><span>Logbook</span></a></li>
+  </ol>
+</nav>
+
+<!-- 1. CHARTER -->
+<section class="stop reveal" id="charter" aria-labelledby="charter-h">
+  <div class="stop__head">
+    <span class="stop__num" aria-hidden="true">1</span>
+    <div>
+      <h2 id="charter-h">Agile Team Charter</h2>
+      <p>Our social contract: purpose, values, working agreements and boundaries. I rewrote it as version 2.0 so it matches how the team actually worked after the July leadership change.</p>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist" aria-label="Team Charter">
+      <button role="tab" id="t-ch-e" aria-controls="p-ch-e" aria-selected="true">Evidence</button>
+      <button role="tab" id="t-ch-r" aria-controls="p-ch-r" aria-selected="false" tabindex="-1">Reflection</button>
+      <span class="tabs__ink" aria-hidden="true"></span>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ch-e" aria-labelledby="t-ch-e">
+      <p><strong>Product goal:</strong> a deployed, mobile-first app where commuters buy and use Gold Card trips, and Golden Arrow staff (clerks, drivers, inspectors, agents and admins) each have their own tools to support that journey.</p>
+      <div class="grid grid--2">
+        <div>
+          <h3 class="subhead">Roles and ownership</h3>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Member</th><th>Role area</th></tr></thead>
+            <tbody>
+              <tr><td>Joshua Adams (me)</td><td>Team Lead · Commuter and Clerk · version control and merges</td></tr>
+              <tr><td>Matthew Barron</td><td>Admin</td></tr>
+              <tr><td>Aidan Barends</td><td>Driver</td></tr>
+              <tr><td>Raul Everts</td><td>Agent</td></tr>
+              <tr><td>Joshua Bird</td><td>Inspector (joined August 2026)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div>
+          <h3 class="subhead">Values, linked to CPUT graduate attributes</h3>
+          <ul class="pills">
+            <li class="pill">Ubuntu</li><li class="pill">Ownership</li><li class="pill">Technical foresight</li><li class="pill">Resilience</li><li class="pill">Ethical data handling</li>
+          </ul>
+          <h3 class="subhead">Working agreements</h3>
+          <ul class="list">
+            <li>No direct pushes to <code>main</code>. Each member works on a branch named with their initials and student number, then opens a pull request from their fork.</li>
+            <li>I review and merge every pull request into <code>main</code>.</li>
+            <li>Tell the owner before changing a file someone else is working on.</li>
+            <li>Sprint planning on Tuesdays, stand-ups on class days, a retrospective at the end of each week.</li>
+            <li>Database changes go in as migrations and are applied before testing.</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot" style="max-width:420px;margin-top:20px"><img src="{{ '/assets/img/agile/charter.png' | relative_url }}" alt="First page of the Agile Team Charter version 2.0" loading="lazy"><figcaption>Agile Team Charter v2.0</figcaption></figure>
+      <div class="doc-links">
+        <a class="btn" href="{{ '/assets/docs/Agile_Team_Charter_v2.0.pdf' | relative_url }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg>Charter v2.0 (Oct 2026)</a>
+        <a class="btn btn--ghost" href="{{ '/assets/docs/Agile_Team_Charter_v1.0.pdf' | relative_url }}">Original charter v1.0 (May 2026)</a>
+      </div>
+    </div>
+    <div class="panel reflection" role="tabpanel" id="p-ch-r" aria-labelledby="t-ch-r" hidden>
+      <p>When I took over as Team Lead in July, my responsibilities did not change much on paper. What changed was my mindset: I had to think like a development lead. I divided the first frontend work using the commuter navigation bar from our wireframes, so each member built a section of it. Joshua Bird joined about a month later, by which time the commuter frontend was basically done.</p>
+      <p>In practice, the project concept and the design choices I worked out with the team became our charter. They guided what I implemented and what I asked others to implement day to day. Everyone knew what GoldenWay had to do for the commuter and how the screens should look and behave, so I could bring decisions back to that shared picture rather than to the written document from semester 1.</p>
+      <p>The working agreement I relied on most was that nobody pushes directly to main. I was in charge of version control. I had everyone work on their own branch and push from their forked repository, and I merged those branches into main myself, checking the code and resolving any conflicts. I also asked that anyone changing a file another member was working on let that person know first.</p>
+      <p>Delegating work mostly felt manageable, but as lead I sometimes had to make tough decisions about who did what. The team was accommodating, and we delivered the areas we had committed to.</p>
+      <p>If I started again, I would write our full tech stack into the charter from day one, from the frontend to the backend, including everything I planned to add. I would also record design choices and working agreements in the charter as I made them, so the written version always matches how the team actually works. With the agreement clear and current, it is easier to see what has not been addressed yet. That is why I updated our charter to version 2.0, to capture the concept, roles and agreements that had guided us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. USER STORIES -->
+<section class="stop reveal" id="stories" aria-labelledby="stories-h">
+  <div class="stop__head">
+    <span class="stop__num" aria-hidden="true">2</span>
+    <div>
+      <h2 id="stories-h">User Stories and Tasks</h2>
+      <p>Every story on our Trello board, written from the user's point of view and grouped by MoSCoW priority. Filter by role to see how the multirole design spread the work across the team.</p>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist" aria-label="User Stories">
+      <button role="tab" id="t-us-e" aria-controls="p-us-e" aria-selected="true">Evidence</button>
+      <button role="tab" id="t-us-r" aria-controls="p-us-r" aria-selected="false" tabindex="-1">Reflection</button>
+      <span class="tabs__ink" aria-hidden="true"></span>
+    </div>
+    <div class="panel" role="tabpanel" id="p-us-e" aria-labelledby="t-us-e">
+      <div class="filters" data-story-filters role="group" aria-label="Filter stories by role"></div>
+      <ul class="stories" data-stories>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to create an account so I can manage my bus tickets.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to buy a bus ticket through the app so I don't need cash.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to see how many rides or credits I have left so I can plan my trips.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to view available routes and fares so I know what to buy.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to have my Gold Card verified digitally so the inspector can confirm my payment.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Admin" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a admin, I want to manage route and fare data so pricing stays accurate.</span><span><span class="role">Admin</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to register with my SA ID number and choose a concession type (student or pensioner), so I pay the right fare.</span><span><span class="role">Commuter</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Clerk" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a clerk, I want to issue a Gold Card and load trips for a commuter in person, so commuters without the app can still travel.</span><span><span class="role">Clerk</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Inspector" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a inspector, I want to verify a commuter's Gold Card when they tap on, so only paid passengers ride.</span><span><span class="role">Inspector</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Driver" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a driver, I want to start my run and report delays, so commuters know where their bus is.</span><span><span class="role">Driver</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Agent" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a agent, I want to answer commuters' support queries in live chat, so their problems are resolved quickly.</span><span><span class="role">Agent</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Admin" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a admin, I want to manage staff accounts and roles, so each staff member only sees their own tools.</span><span><span class="role">Admin</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Admin" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a admin, I want to approve or deny staff access requests, so only real employees get staff accounts.</span><span><span class="role">Admin</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Inspector" data-priority="Must" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a inspector, I want to log the outcome of each inspection and block a card when needed, so misuse is recorded and stopped.</span><span><span class="role">Inspector</span> <span class="tag tag--must">Must</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to top up my balance so I don't have to buy single tickets each time.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to see my ride history so I can track my spending.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to get notifications about delays or route changes.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to read the terms and conditions before I sign up, so I know how my data is used.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to reset my password by email if I forget it, so I can get back into my account.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to update my profile details, so my account information stays correct.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to view the timetable for my route, so I know when the next bus leaves.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to get a receipt after I load trips, so I have proof of payment.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to get a free transfer within the transfer window, so I don't pay twice for one journey.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to buy a weekly or monthly unlimited pass, so I can ride as often as I need on my route.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to get in-app notifications when my top-up is paid or support replies, so I know what is happening on my account.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to verify my email before logging in, so my account is secure.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to link the card I got at a clerk to my new app account, so I keep the trips already on it.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to see my route on a live map, so I can track my bus.</span><span><span class="role">Commuter</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Clerk" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a clerk, I want to verify a commuter's concession, so students and pensioners get the discounted fare.</span><span><span class="role">Clerk</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Clerk" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a clerk, I want to replace a lost Gold Card and keep the trips on it, so the commuter doesn't lose what they paid for.</span><span><span class="role">Clerk</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Clerk" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a clerk, I want to record cash sales at the kiosk, so in-person payments are tracked.</span><span><span class="role">Clerk</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Admin" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a admin, I want to publish and expire service alerts, so commuters hear about delays and route changes.</span><span><span class="role">Admin</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Admin" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a admin, I want to activate or deactivate staff accounts, so people who leave lose access.</span><span><span class="role">Admin</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Driver" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a driver, I want to add a pre-trip note and track whether my run is on time, so delays are recorded accurately.</span><span><span class="role">Driver</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Agent" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a agent, I want to claim, resolve and escalate support tickets from a queue, so every query has an owner.</span><span><span class="role">Agent</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Inspector" data-priority="Should" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a inspector, I want to see my inspection history, so I can review the cards I have checked.</span><span><span class="role">Inspector</span> <span class="tag tag--should">Should</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to tap to board (simulated validator in the app), so a journey is deducted without visiting a booth.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to save a payment card, so topping up is quicker next time.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to report a problem with my trip through support chat, so it gets resolved.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to see the routes I use most first, so I can find them quickly.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to dismiss service alerts I have already seen, so my home screen stays clear.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a commuter, I want to delete my account, so my data is removed when I stop using the app.</span><span><span class="role">Commuter</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Staff" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a new staff member, I want to have the admin approve my sign-up request, so only approved staff get access.</span><span><span class="role">Staff</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Clerk" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a clerk, I want to see recent kiosk activity, so I can follow up on earlier transactions.</span><span><span class="role">Clerk</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Agent" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a agent, I want to set my online status, so commuters know when an agent is available to help.</span><span><span class="role">Agent</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Driver" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a driver, I want to choose the direction of my run, so the timeline matches the way I am driving the route.</span><span><span class="role">Driver</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Staff" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a staff member, I want to edit my own profile and deactivate my account, so my details stay up to date.</span><span><span class="role">Staff</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Staff" data-priority="Could" data-done="yes"><span class="check" aria-label="Done">✓</span><span>As a new staff member, I want to confirm my email and complete my own sign-up after approval, so I reach my dashboard securely.</span><span><span class="role">Staff</span> <span class="tag tag--could">Could</span></span></li>
+            <li data-role="Commuter" data-priority="Won't" data-done="no"><span class="check check--no" aria-label="Not in this phase">–</span><span>As a commuter, I want to show a QR-code ticket to the inspector (replaced by Gold Card verification for this phase).</span><span><span class="role">Commuter</span> <span class="tag tag--wont">Won't</span></span></li>
+      </ul>
+      <h3 class="subhead">How a story became tasks</h3>
+      <p>Each story was split into tasks on a sprint card checklist. For example, <em>"As a commuter, I want to tap to board"</em> became: build the route picker, write the Supabase RPC that deducts a journey, apply the transfer window rule, record the trip in ride history, and show the updated balance.</p>
+      <div class="shots">
+        <figure class="shot"><img src="{{ '/assets/img/agile/user-stories.png' | relative_url }}" alt="Trello user stories card with MoSCoW checklists" loading="lazy"><figcaption>User stories card on Trello</figcaption></figure>
+        <figure class="shot"><img src="{{ '/assets/img/agile/sprint-card.png' | relative_url }}" alt="A sprint card with its task checklist" loading="lazy"><figcaption>Story broken into tasks</figcaption></figure>
+      </div>
+    </div>
+    <div class="panel reflection" role="tabpanel" id="p-us-r" aria-labelledby="t-us-r" hidden>
+      <p>Our first user stories were written only for the commuter. I proposed turning GoldenWay into a multirole system, with staff users whose job is to help the commuter on their journey: clerks, inspectors, agents and the admin. Writing stories for those roles from the commuter's point of view made the idea feel solid to me, because every new feature had a clear reason to exist. It also gave the app room to grow and gave each team member, including our new member, a clear area to focus on.</p>
+      <p>Not every story made it into the app in its original form. I wanted the QR code story to run through several parts of the system. For example, a commuter would receive a ticket receipt with a QR code that the inspector could scan. Once development started, I realised how much of the app that one feature would touch, and with the time we had it could not be built the way I wanted. Instead, inspector verification was built around the Gold Card itself. The inspector looks up the card when the commuter taps on and sees whether it has a valid pass or journeys left. That kept the user need, proving that the commuter has paid, and matched how a real GABS card already works.</p>
+      <p>The way I broke stories into tasks also changed during the project. I first built the commuter frontend from our wireframes, which gave me a strong base. When the team evaluated it, I went back to the drawing board and built the backend in Supabase to support that frontend. I then removed the mock data so every screen reads real data from the database. Once the commuter frontend and backend were connected, adding the five staff roles was much easier. Throughout this, the Trello board and the business rules guided which tasks came next.</p>
+      <p>Some stories were adapted to our resources. There was no budget for NFC or IoT devices, so I built tap-to-pay as a simulated validator: the commuter picks the route they are boarding and taps in the app, and the backend deducts a journey exactly as a real validator would. For a student demo application, I think the trade-off was small. My research showed that real NFC would mostly mean connecting the same flow to a device API. I also applied real validation rules. South African ID numbers are checked with the Luhn algorithm, and payments only accept valid card details, with the card number passing a Luhn check. A PayFast sandbox would have been my next step for payments.</p>
+      <p>I learned that a user story is the start of a conversation, not a fixed specification. Where a story could not be built as written, I kept the user's real need and built the closest version our time and resources allowed, based on how commuters and staff would use the app in real life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRODUCT BACKLOG -->
+<section class="stop reveal" id="product" aria-labelledby="product-h">
+  <div class="stop__head">
+    <span class="stop__num" aria-hidden="true">3</span>
+    <div>
+      <h2 id="product-h">Product Backlog</h2>
+      <p>The full list of what GoldenWay needed, ordered by priority and by what our lecturer, acting as customer, expected to see at each check-in.</p>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist" aria-label="Product Backlog">
+      <button role="tab" id="t-pb-e" aria-controls="p-pb-e" aria-selected="true">Evidence</button>
+      <button role="tab" id="t-pb-r" aria-controls="p-pb-r" aria-selected="false" tabindex="-1">Reflection</button>
+      <span class="tabs__ink" aria-hidden="true"></span>
+    </div>
+    <div class="panel" role="tabpanel" id="p-pb-e" aria-labelledby="t-pb-e">
+      <div class="grid grid--2">
+        <div>
+          <h3 class="subhead">Stories by MoSCoW priority</h3>
+          <div class="moscow" data-moscow></div>
+          <p class="muted" style="font-size:.88rem">Counts are read live from the story list above. The one Won't Have item, QR-code tickets, was replaced by Gold Card verification.</p>
+        </div>
+        <div>
+          <h3 class="subhead">How the backlog evolved</h3>
+          <ol class="timeline">
+            <li><span class="mono">May 2026 · PFP3</span>Commuter-only backlog, carried over from the previous subject.</li>
+            <li><span class="mono">July 2026</span>Board reworked after lecturer feedback: proper lists, sprint cards with subtasks, colour labels, unused cards removed. Approved.</li>
+            <li><span class="mono">11 Aug 2026</span>I introduced the multirole design. A second backlog card added stories for clerks, drivers, inspectors, agents and the admin.</li>
+            <li><span class="mono">Sept 2026</span>Reprioritised around check-ins: live backend, email verification through SMTP, password reset, card linking.</li>
+            <li><span class="mono">20 Oct 2026 · feature freeze</span>Items refined to match what was delivered, for example tap-to-pay as a simulated validator.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="shots">
+        <figure class="shot"><img src="{{ '/assets/img/agile/trello-board.png' | relative_url }}" alt="The GoldenWay Trello board with its lists" loading="lazy"><figcaption>GoldenWay Trello board</figcaption></figure>
+        <figure class="shot"><img src="{{ '/assets/img/agile/product-backlog.png' | relative_url }}" alt="Product backlog card on Trello" loading="lazy"><figcaption>Product backlog</figcaption></figure>
+      </div>
+    </div>
+    <div class="panel reflection" role="tabpanel" id="p-pb-r" aria-labelledby="t-pb-r" hidden>
+      <p>When the team first showed our Trello board to the lecturer, she was not happy with how we used it. Most of our information sat in long descriptions, and we were not really using cards and lists such as User Stories and In Progress to show the work. I led the rework with the team: we restructured the board around proper lists, gave each sprint card its own subtasks, added colour labels to group the work and removed cards we did not need. After those changes she approved the layout, and that structure became the backlog I managed for the rest of the project.</p>
+      <p>My priorities were shaped largely by our presentations to the lecturer, who acted as our customer. Each check-in had a clear focus. First the team presented our system architecture and brand design, then the frontend design as a mock-up without a backend, and later a version where the frontend and backend worked together. After each presentation I knew what she expected to see next, and I moved those items to the top of the backlog. For example, she expected authentication to be complete, so at the following check-in I showed email verification running through the SMTP setup and a password reset that lets a user recover their account by email.</p>
+      <p>The biggest change to the backlog came from my own work on the use cases. While thinking about how routes would be managed, I asked who would create and maintain them. I also considered a commuter who had already bought a Gold Card at a clerk and paid the card fee before signing up online. Questions like these showed me that the commuter app was only one side of what Golden Arrow does, and that a whole operation runs behind it. That led me to design the multirole system, with separate sign-up paths for commuters, staff and existing cardholders. I based these use cases on how Golden Arrow works and on my own online research, and they grew the app well beyond its first scope.</p>
+      <p>By feature freeze, I brought the backlog fully in line with what had been built. Where an item had changed during development, such as tap-to-pay becoming a simulated validator, I refined it to describe what was delivered.</p>
+      <p>This taught me that a product backlog is a living list. Its order should follow what the customer needs to see next, and it is most useful when it always reflects the real state of the product.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SPRINT BACKLOG -->
+<section class="stop reveal" id="sprint" aria-labelledby="sprint-h">
+  <div class="stop__head">
+    <span class="stop__num" aria-hidden="true">4</span>
+    <div>
+      <h2 id="sprint-h">Sprint Backlog</h2>
+      <p>What the team committed to each week, planned on Tuesdays and tracked on the Trello taskboard (Product Backlog → In Progress → Completed).</p>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist" aria-label="Sprint Backlog">
+      <button role="tab" id="t-sb-e" aria-controls="p-sb-e" aria-selected="true">Evidence</button>
+      <button role="tab" id="t-sb-r" aria-controls="p-sb-r" aria-selected="false" tabindex="-1">Reflection</button>
+      <span class="tabs__ink" aria-hidden="true"></span>
+    </div>
+    <div class="panel" role="tabpanel" id="p-sb-e" aria-labelledby="t-sb-e">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Week</th><th>Dates</th><th>Sprint goal</th><th>Outcome</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>13–17 Jul</td><td>Wireframes and pitch presentation</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>2</td><td>20–24 Jul</td><td>Rework the Trello board after lecturer feedback</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>3</td><td>27–31 Jul</td><td>Figma prototype; React chosen for the frontend</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>4</td><td>3–7 Aug</td><td>React project set up; commuter screens split by nav bar</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>5</td><td>11–14 Aug</td><td>Multirole design, database schema, row-level security, auth</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>6</td><td>18–21 Aug</td><td>Database-backed features for each role</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr class="gap"><td colspan="4">22 Aug – 14 Sep · campus closed due to protests, then term moved into recess</td></tr>
+          <tr><td>7</td><td>15–18 Sep</td><td>Quality pass: automated tests grew from 15 to 28; demo on 17 Sep</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>8</td><td>22–25 Sep</td><td>Live map, email verification, card linking, wallet, password reset</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr><td>9</td><td>28 Sep – 2 Oct</td><td>Deployment prep, final merges, account deletion</td><td><span class="tag tag--done">Done</span></td></tr>
+          <tr class="gap"><td colspan="4">5 – 16 Oct · no classes: Vercel link submitted, each member presented a feature</td></tr>
+          <tr><td>10</td><td>19–20 Oct</td><td>Eight code-review fixes, UI critique, feature freeze</td><td><span class="tag tag--done">Done</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="shots">
+        <figure class="shot"><img src="{{ '/assets/img/agile/completed.png' | relative_url }}" alt="Completed list on Trello with sprint cards 1 to 19" loading="lazy"><figcaption>Completed sprints 1–19</figcaption></figure>
+        <figure class="shot"><img src="{{ '/assets/img/agile/retrospective.png' | relative_url }}" alt="A weekly retrospective card on Trello" loading="lazy"><figcaption>Weekly retrospective card</figcaption></figure>
+      </div>
+    </div>
+    <div class="panel reflection" role="tabpanel" id="p-sb-r" aria-labelledby="t-sb-r" hidden>
+      <p>I usually ran sprint planning on a Tuesday. Each member showed me what they had built from the work I had assigned to them, and I acted as a critic of that work. I gave suggestions on what to improve, what to implement next and what to leave out, so that their next tasks were clear. When I had my own work or updates to share, I presented them to the group in the same meeting.</p>
+      <p>Getting everyone together was not always possible, because some members were busy during the day and others in the evening. Most meetings included the whole team, but where circumstances made that difficult I held one-on-one meetings instead, so each member could show me their work at a time that suited them. This kept every sprint moving even when the full group could not meet.</p>
+      <p>The most challenging part of each sprint for me was merging everyone's work. As I merged branches one after another, I had to find where each change sat in the code and decide which code to keep and which to discard: accept the incoming change, keep the current one, or combine them. I used the tools available to me to work through these conflicts in our pull requests, and the experience taught me a lot about version control.</p>
+      <p>The lecturer's feedback shaped each sprint I planned. Because of breaks during the term, there were stretches where we could not present to her, so her main concern was whether we were on track. With each presentation she saw that what she had asked for at the previous one was now built. The app moved from a mock frontend to one connected to a live database, then I showed authentication working through the SMTP setup, and payments that read and write real data instead of mock data. As the core features became stable, my own focus shifted from building features to designing new ones, and that is when I developed the multirole system.</p>
+      <p>On 21 August I wrote that I would rather show fewer features that are solid than many that are shaky. At that point some features worked fully with the backend, while others, such as the map, still used mock data. Some screens also needed UI fixes, like two different buttons leading to the same place. Making the working features solid before adding more became a principle I kept for the rest of the project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. LOGBOOK -->
+<section class="stop reveal" id="logbook" aria-labelledby="logbook-h">
+  <div class="stop__head">
+    <span class="stop__num" aria-hidden="true">5</span>
+    <div>
+      <h2 id="logbook-h">Agile Logbook</h2>
+      <p>My stand-up record: what I did, what I planned next and what blocked me, with a retrospective at the end of each week. Open a week to see the highlights.</p>
+    </div>
+  </div>
+  <div data-tabs>
+    <div class="tabs" role="tablist" aria-label="Agile Logbook">
+      <button role="tab" id="t-lb-e" aria-controls="p-lb-e" aria-selected="true">Evidence</button>
+      <button role="tab" id="t-lb-r" aria-controls="p-lb-r" aria-selected="false" tabindex="-1">Reflection</button>
+      <span class="tabs__ink" aria-hidden="true"></span>
+    </div>
+    <div class="panel" role="tabpanel" id="p-lb-e" aria-labelledby="t-lb-e">
+      <div class="weeks">
+        <details class="week" open><summary><strong>Week 1</strong><span>Took over as lead; wireframes and the pitch</span><span class="mono">13–17 Jul</span></summary>
+          <div class="week__body"><p>Picked up the team after the previous lead left for an internship. Finished the MVP wireframes, divided the presentation work and delivered the pitch on 17 July.</p>
+            <div class="retro"><div class="well"><b>Went well</b>MVP wireframes completed; pitch delivered to the lecturer.</div><div class="improve"><b>To improve</b>Compiling everyone's slides into one consistent deck took extra effort.</div><div class="action"><b>Action</b>Agree on formatting and branding before splitting work.</div></div></div></details>
+        <details class="week"><summary><strong>Week 2</strong><span>Trello board reworked after feedback</span><span class="mono">20–24 Jul</span></summary>
+          <div class="week__body"><p>Reviewed the lecturer's feedback on our board as a team, restructured it around lists and sprint cards, and refined the product backlog.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Feedback applied; backlog refined and sprint cards added.</div><div class="improve"><b>To improve</b>Interpreting feedback consistently and avoiding duplicate backlog items.</div><div class="action"><b>Action</b>Review the board together before each milestone.</div></div></div></details>
+        <details class="week"><summary><strong>Week 3</strong><span>Figma prototype; React chosen</span><span class="mono">27–31 Jul</span></summary>
+          <div class="week__body"><p>Presented the Figma prototype, applied the feedback and agreed on React for the frontend.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Prototype presented and feedback implemented.</div><div class="improve"><b>To improve</b>Balancing design suggestions while keeping screens consistent.</div><div class="action"><b>Action</b>Configure every development environment before implementation begins.</div></div></div></details>
+        <details class="week"><summary><strong>Week 4</strong><span>React set-up; screens split by nav bar</span><span class="mono">3–7 Aug</span></summary>
+          <div class="week__body"><p>Set up the React project and split the commuter screens by the navigation bar so each member built a section.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Each member built their assigned frontend section.</div><div class="improve"><b>To improve</b>Keeping sections consistent; deciding whether frontend or backend comes first.</div><div class="action"><b>Action</b>Hold a full team frontend review before presenting.</div></div></div></details>
+        <details class="week"><summary><strong>Week 5</strong><span>Multirole design, schema, RLS and auth</span><span class="mono">11–14 Aug</span></summary>
+          <div class="week__body"><p>Designed the six-role system and gave each member a role to own. Wrote the first migrations with row-level security and got the first end-to-end slice working.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Roles agreed and divided; first end-to-end slice working.</div><div class="improve"><b>To improve</b>Testing RLS policies took longer than writing them; merge coordination across five features.</div><div class="action"><b>Action</b>Feature branches and PR reviews, no direct pushes to main.</div></div></div></details>
+        <details class="week"><summary><strong>Week 6</strong><span>Database-backed features for every role</span><span class="mono">18–21 Aug</span></summary>
+          <div class="week__body"><p>Every role reached working, database-backed features, and I wrote up the demo flow for the team.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Every role has database-backed features.</div><div class="improve"><b>To improve</b>Several people editing the same context providers; a login bug routed staff into the commuter app.</div><div class="action"><b>Action</b>One owner per context provider; polish solid features before adding new ones.</div></div></div></details>
+        <div class="break">22 Aug – 14 Sep · campus closed due to protests, then recess · Term 4 began 15 Sep</div>
+        <details class="week"><summary><strong>Week 7</strong><span>Quality pass and supervisor demo</span><span class="mono">15–18 Sep</span></summary>
+          <div class="week__body"><p>Evaluated where the project stood after the closure. Cleared lint warnings from 26 to 0, added a global error boundary and grew the tests from 15 to 28.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Integration demo approved by the supervisor.</div><div class="improve"><b>To improve</b>A merge conflict in the navigation config briefly broke the app.</div><div class="action"><b>Action</b>Shared config files have a single owner; make the wallet database-backed.</div></div></div></details>
+        <details class="week"><summary><strong>Week 8</strong><span>Map, email verification, card linking, wallet</span><span class="mono">22–25 Sep</span></summary>
+          <div class="week__body"><p>Delivered the live route map, real email verification, linking a clerk-issued card, the database-backed wallet, staff sign-up confirmation and password reset.</p>
+            <div class="retro"><div class="well"><b>Went well</b>Authentication and wallet complete for the check-in.</div><div class="improve"><b>To improve</b>The map doubled the bundle size; migrations were applied after testing.</div><div class="action"><b>Action</b>Apply migrations before testing; code-split the map screen.</div></div></div></details>
+        <details class="week"><summary><strong>Week 9</strong><span>Deployment prep and final merges</span><span class="mono">28 Sep – 2 Oct</span></summary>
+          <div class="week__body"><p>Admin catalogue and alerts landed, screens were lazy-loaded, the driver and inspector branches were merged, and account deletion was added.</p>
+            <div class="retro"><div class="well"><b>Went well</b>All role branches merged into main.</div><div class="improve"><b>To improve</b>The lazy-loading change broke a newly merged screen.</div><div class="action"><b>Action</b>Merge one branch at a time and run the build after every merge.</div></div></div></details>
+        <div class="break">5 – 16 Oct · no classes · Vercel link submitted · feature presentations: Adams, Everts, Barends, Barron, Bird</div>
+        <details class="week"><summary><strong>Week 10</strong><span>Code-review fixes and feature freeze</span><span class="mono">19–20 Oct</span></summary>
+          <div class="week__body"><p>Fixed eight bugs from a code review, applied a UI critique to every commuter screen and froze features. Brought the Trello board in line with the delivered app.</p>
+            <div class="retro"><div class="well"><b>Went well</b>8 bugs fixed; app deployed and features frozen.</div><div class="improve"><b>To improve</b>Some auth and sign-out bugs only surfaced in the final review.</div><div class="action"><b>Action</b>Run a short code review at the end of every sprint.</div></div></div></details>
+      </div>
+      <div class="doc-links">
+        <a class="btn" href="{{ '/assets/docs/GoldenWay_Logbook_230317693.pdf' | relative_url }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg>Full logbook (PDF)</a>
+      </div>
+      <div class="shots">
+        <figure class="shot"><img src="{{ '/assets/img/agile/logbook.png' | relative_url }}" alt="A page of the GoldenWay agile logbook" loading="lazy"><figcaption>Logbook page</figcaption></figure>
+      </div>
+    </div>
+    <div class="panel reflection" role="tabpanel" id="p-lb-r" aria-labelledby="t-lb-r" hidden>
+      <p>Some days I wrote my logbook entry on the day itself, and other times I had to catch up as I went along. That taught me how important it is to log my work every day, because each daily entry adds up to the picture of what I achieved that week. Logging works best when it is part of my daily routine rather than something I do afterwards.</p>
+      <p>Reading back through my entries showed me how far the project progressed, from wireframes and a mock frontend in July to a deployed app with six roles in October. The logbook also showed me where I needed to look back and review the week, and it worked as a mental checklist for what I had done and what still needed attention.</p>
+      <p>Every retrospective gave me a lesson I could act on. I learned to apply migrations to the live database before testing, and to merge branches into main one at a time. I also kept reminding the team to update their forked repositories regularly, because several of us were updating main at the same time. Keeping each fork in sync meant that the work each member sent to my main repository already included everyone else's latest changes, so our collaboration showed in the code itself. Above all, the retrospectives reminded me to stick to the plans I had set in motion.</p>
+    </div>
+  </div>
+</section>
+
+<section class="connect reveal" aria-labelledby="connect-h">
+  <span class="eyebrow">Connect</span>
+  <h2 id="connect-h">What I take into the workplace</h2>
+  <p>Looking at the charter, user stories, backlogs and logbook together, the main lesson I take into the workplace is the value of routine. Before I write any code, I update my branches and make sure I understand what I need to do, whether as team lead or as developer. I document as I go, so the backlog stays current and anyone can see what changed, when it changed and why I chose that approach. I lay the foundation before development starts: documentation, system architecture, brand guide and business rules. That way less changes later, and anything that does change is recorded.</p>
+      <p>Communication matters just as much. Even on a solo project some communication has to happen, and in a team it means everyone knows what to do and what is happening right now. I need to know the resources I will need to finish a project. After a break, I do an internal evaluation of where the project stands before carrying on. As a lead, I make myself available, hold regular check-ins, and look for ways to make the work convenient for my team and to ease the strain on them.</p>
+</section>
+
+<section class="section reveal" aria-labelledby="refs-h">
+  <h2 class="bar bar--left" id="refs-h">References</h2>
+  <ul class="refs">
+    <li>Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler, M., Grenning, J., Highsmith, J., Hunt, A., Jeffries, R., Kern, J., Marick, B., Martin, R.C., Mellor, S., Schwaber, K., Sutherland, J. and Thomas, D. (2001) <em>Manifesto for Agile Software Development</em>. Available at: <a href="https://agilemanifesto.org/">https://agilemanifesto.org/</a> (Accessed: 20 October 2026).</li>
+    <li>Cape Peninsula University of Technology (2026) <em>PRP37XS Subject Guide</em>. Cape Town: CPUT.</li>
+    <li>Project Management Institute and Agile Alliance (2017) <em>Agile Practice Guide</em>. Newtown Square, PA: Project Management Institute.</li>
+    <li>Schwaber, K. and Sutherland, J. (2020) <em>The Scrum Guide</em>. Available at: <a href="https://scrumguides.org/">https://scrumguides.org/</a> (Accessed: 20 October 2026).</li>
+  </ul>
+</section>

@@ -253,6 +253,18 @@ tr.gap td { background: var(--bar) !important; color: var(--muted); font-style: 
 .entry .org { color: #39405a; }
 .entry .mono { color: var(--muted); display: block; }
 
+/* Certificates */
+.certs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.cert { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s ease, box-shadow .25s ease; }
+.cert:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-hover); }
+.cert .shot { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; box-shadow: none; transform: none; }
+.cert .shot img { width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; object-position: center; }
+.cert .shot figcaption { display: none; }
+.cert__body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.cert__body .mono { color: var(--muted); }
+.cert__body h3 { font-size: 1rem; margin: 0 0 6px; }
+.cert__link { margin-top: auto; font-weight: 600; font-size: .88rem; }
+
 /* ---------- Interview ---------- */
 .video { background: var(--navy-deep); border-radius: var(--radius); overflow: hidden; box-shadow: 8px 8px 0 var(--gold); }
 .video video { width: 100%; display: block; aspect-ratio: 16 / 9; background: #000; }
@@ -292,12 +304,14 @@ tr.gap td { background: var(--bar) !important; color: var(--muted); font-style: 
   .side.is-open .side__nav, .side.is-open .side__contact { display: flex; }
   .side.is-open .side__contact { display: grid; margin: 0; }
   .hero, .cv, .grid--2, .grid--3 { grid-template-columns: 1fr; }
+  .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .retro, .star { grid-template-columns: 1fr; }
   .star > div { border-right: 0; }
   .route__line a span:not(.route__dot) { font-size: .68rem; }
   .main { padding-top: 28px; }
 }
 @media (max-width: 560px) {
+  .certs { grid-template-columns: 1fr; }
   .route__line a span:not(.route__dot) { display: none; }
   .week summary { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
   .week summary .mono { order: 1; }

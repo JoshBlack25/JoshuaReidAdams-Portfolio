@@ -248,6 +248,8 @@ tr.gap td { background: var(--bar) !important; color: var(--muted); font-style: 
 
 /* ---------- CV ---------- */
 .cv { display: grid; grid-template-columns: 1fr 1.4fr; gap: 28px; }
+.cv > div { display: flex; flex-direction: column; }
+.cv > div > .card:last-child { flex: 1; }
 .entry { margin-bottom: 16px; }
 .entry h3 { margin: 0; font-size: 1rem; }
 .entry .org { color: #39405a; }
